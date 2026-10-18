@@ -1,0 +1,27 @@
+---
+layout: company
+body_class: home
+description: Mountain Wave is a small independent studio making small, handmade games.
+---
+<section class="intro wrap">
+  <h1 class="visually-hidden">Mountain Wave</h1>
+  <picture>
+    <source type="image/webp" srcset="{{ '/assets/img/mountain-wave/logo-ink-480.webp' | relative_url }} 480w, {{ '/assets/img/mountain-wave/logo-ink-960.webp' | relative_url }} 960w" sizes="(min-width: 640px) 520px, 90vw">
+    <img class="intro__logo" src="{{ '/assets/img/mountain-wave/logo-ink-960.png' | relative_url }}" srcset="{{ '/assets/img/mountain-wave/logo-ink-480.png' | relative_url }} 480w, {{ '/assets/img/mountain-wave/logo-ink-960.png' | relative_url }} 960w" sizes="(min-width: 640px) 520px, 90vw" width="2400" height="1792" alt="Mountain Wave logo: two ink-drawn mountains beside a curling wave, with the sun setting over the sea.">
+  </picture>
+  {%- comment -%} DRAFT COPY: for review {%- endcomment %}
+  <p class="intro__blurb">
+    Mountain Wave is a small independent studio. We make games that are quick to pick up,
+    a little bit silly, and made with care: the kind you play for five minutes and look up
+    an hour later.
+  </p>
+</section>
+
+<section class="games wrap" aria-labelledby="games-heading">
+  <h2 id="games-heading">Our Games</h2>
+  <ul class="game-list">
+    {%- for game in site.data.games %}
+    {% include game-card.html game=game %}
+    {%- endfor %}
+  </ul>
+</section>

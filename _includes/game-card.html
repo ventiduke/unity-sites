@@ -1,0 +1,12 @@
+{%- assign g = include.game -%}
+{%- if g.pixel_art -%}{%- assign img_class = "pixel" -%}{%- else -%}{%- assign img_class = "" -%}{%- endif -%}
+<li class="game-card">
+  <a href="{{ '/' | append: g.slug | append: '/' | relative_url }}">
+    {% include picture.html src=g.image widths=g.image_widths alt=g.image_alt sizes="(min-width: 760px) 360px, 100vw" class=img_class width="16" height="9" %}
+    <span class="game-card__body">
+      <span class="game-card__name">{{ g.name }}</span>
+      <span class="game-card__pitch">{{ g.pitch }}</span>
+      <span class="game-card__status">{% if g.store_url != "" %}Out now on {{ g.platform }}{% else %}Coming soon to {{ g.platform }}{% endif %}</span>
+    </span>
+  </a>
+</li>

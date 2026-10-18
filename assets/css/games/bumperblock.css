@@ -1,0 +1,77 @@
+/* Bumper Block theme: the overgrown stadium. Moss greens and rust, with the bright vehicle
+   colors (tangerine, cherry, sunny yellow, ocean teal) as accents. Pixel font for headings,
+   a plain sans for reading. */
+
+@font-face { font-family: "Jersey 10"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../../fonts/jersey-10-latin-400-normal.woff2") format("woff2"); }
+
+.theme-bumperblock {
+  --moss-900: #14231a;
+  --moss-800: #1c3224;
+  --moss-700: #284631;
+  --moss-500: #4f7d3f;
+  --ivy: #8fc05a;
+  --rust: #b0532a;
+  --dirt: #c9a26b;
+  --tangerine: #f28c28;
+  --cherry: #e0393e;
+  --sunny: #f7c844;
+  --teal: #2fa8a2;
+  --cream: #f6eedb;
+
+  --paper: var(--moss-800);
+  --ink: var(--cream);
+  --ink-soft: #c9d3b8;
+  --rule: var(--moss-700);
+  --link: var(--sunny);
+  --body-font: var(--sans);
+  --heading-font: "Jersey 10", var(--sans);
+  font-size: 1.0625rem;
+  background:
+    linear-gradient(180deg, var(--moss-900) 0, var(--moss-800) 28rem);
+}
+
+.theme-bumperblock .game-bar { background: var(--moss-900); border-bottom: 4px solid var(--rust); }
+.theme-bumperblock .game-bar__home { font-family: var(--heading-font); font-size: 1.4rem; color: var(--cream); }
+.theme-bumperblock .game-bar__home:hover { color: var(--sunny); }
+
+.theme-bumperblock .hero { background: var(--moss-900); padding-bottom: 2rem; border-bottom: 4px solid var(--moss-700); }
+.theme-bumperblock .hero__title {
+  color: var(--sunny); font-weight: 400; letter-spacing: 0.03em;
+  font-size: clamp(3.4rem, 12vw, 6.5rem); line-height: 1;
+  text-shadow: 3px 3px 0 var(--rust), 6px 6px 0 var(--moss-900);
+}
+.theme-bumperblock .hero__pitch { color: var(--cream); }
+
+/* Chunky pixel-style frame: stepped corners from box-shadows, no rounded edges. */
+.theme-bumperblock .badge,
+.theme-bumperblock .button {
+  font-family: var(--heading-font); font-size: 1.6rem; font-weight: 400; line-height: 1.1;
+  color: var(--moss-900); background: var(--tangerine); text-decoration: none;
+  box-shadow: 0 4px 0 var(--rust), 4px 0 0 var(--moss-900), -4px 0 0 var(--moss-900),
+              0 -4px 0 var(--moss-900), 0 8px 0 var(--moss-900);
+}
+.theme-bumperblock .button:hover { background: var(--sunny); }
+
+.theme-bumperblock .game-content strong { color: var(--sunny); }
+.theme-bumperblock .game-content h2 { color: var(--ivy); font-weight: 400; font-size: 2.2rem; letter-spacing: 0.02em; }
+.theme-bumperblock .game-content ul:not(.drivers) li::marker { color: var(--tangerine); content: "\25A0  "; }
+
+.theme-bumperblock .drivers img { border: 4px solid var(--moss-900); box-shadow: 0 4px 0 var(--rust); }
+.theme-bumperblock .drivers li:nth-child(1) span { color: var(--tangerine); }
+.theme-bumperblock .drivers li:nth-child(2) span { color: var(--cherry); filter: brightness(1.35); }
+.theme-bumperblock .drivers li:nth-child(3) span { color: var(--sunny); }
+.theme-bumperblock .drivers li:nth-child(4) span { color: var(--teal); filter: brightness(1.3); }
+.theme-bumperblock .drivers span { font-family: var(--heading-font); font-size: 1.7rem; line-height: 1.1; }
+
+/* Policy pages read best as dark text on a light card. */
+.theme-bumperblock .policy {
+  background: var(--cream); color: #1d1b16; padding: 1.5rem 1.25rem 1rem;
+  box-shadow: 0 6px 0 var(--rust); margin-top: 2rem;
+  --ink-soft: #5a5446; --link: #8a3b17;
+}
+@media (min-width: 640px) { .theme-bumperblock .policy { padding: 2.5rem 3rem 1.5rem; } }
+.theme-bumperblock .policy h1 { color: var(--moss-800); font-weight: 400; font-size: clamp(2.6rem, 8vw, 3.4rem); line-height: 1; }
+.theme-bumperblock .policy h2 { color: var(--rust); font-family: var(--heading-font); font-weight: 400; font-size: 1.8rem; }
+
+.theme-bumperblock .site-footer { border-top: 4px solid var(--moss-700); background: var(--moss-900); margin-top: 4rem; }

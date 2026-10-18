@@ -1,0 +1,33 @@
+---
+layout: base
+---
+{%- comment -%}
+  Game page. Front matter: `game: <slug>` (must match _data/games.yml).
+  Shows the hero key art, the game's name and pitch, a store link or "Coming soon",
+  then the page's own content. Footer links the privacy policy if the game has one.
+{%- endcomment -%}
+{%- assign game = site.data.games | where: "slug", page.game | first -%}
+{%- if game.pixel_art -%}{%- assign img_class = "hero__art pixel" -%}{%- else -%}{%- assign img_class = "hero__art" -%}{%- endif -%}
+<header class="game-bar">
+  <div class="wrap">
+    <a class="game-bar__home" href="{{ '/' | relative_url }}">&larr; Mountain Wave</a>
+  </div>
+</header>
+<main id="main">
+  <section class="hero">
+    {% include picture.html src=game.image widths=game.image_widths alt=game.image_alt sizes="100vw" class=img_class loading="eager" width="16" height="9" %}
+    <div class="wrap hero__text">
+      <h1 class="hero__title">{{ game.name }}</h1>
+      <p class="hero__pitch">{{ game.pitch }}</p>
+      {%- if game.store_url != "" %}
+      <a class="button" href="{{ game.store_url }}">Get it on {{ game.platform }}</a>
+      {%- else %}
+      <p class="badge">Coming soon to {{ game.platform }}</p>
+      {%- endif %}
+    </div>
+  </section>
+  <div class="wrap game-content">
+{{ content }}
+  </div>
+</main>
+{% include site-footer.html game=game %}

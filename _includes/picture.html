@@ -1,0 +1,14 @@
+{%- comment -%}
+  Responsive image from files made by tools/make_images.py.
+  include.src: path prefix (e.g. /assets/img/bumperblock/keyart)
+  include.widths: array of available widths, smallest first
+  include.alt, include.sizes, include.class, include.loading (default lazy)
+{%- endcomment -%}
+{%- assign widths = include.widths -%}
+{%- assign largest = widths | last -%}
+{%- capture webp -%}{%- for w in widths -%}{{ include.src | append: '-' | append: w | append: '.webp' | relative_url }} {{ w }}w{% unless forloop.last %}, {% endunless %}{%- endfor -%}{%- endcapture -%}
+{%- capture jpg -%}{%- for w in widths -%}{{ include.src | append: '-' | append: w | append: '.jpg' | relative_url }} {{ w }}w{% unless forloop.last %}, {% endunless %}{%- endfor -%}{%- endcapture -%}
+<picture>
+  <source type="image/webp" srcset="{{ webp }}" sizes="{{ include.sizes | default: '100vw' }}">
+  <img src="{{ include.src | append: '-' | append: largest | append: '.jpg' | relative_url }}" srcset="{{ jpg }}" sizes="{{ include.sizes | default: '100vw' }}" alt="{{ include.alt | escape }}"{% if include.class %} class="{{ include.class }}"{% endif %}{% if include.width %} width="{{ include.width }}" height="{{ include.height }}"{% endif %} loading="{{ include.loading | default: 'lazy' }}" decoding="async">
+</picture>

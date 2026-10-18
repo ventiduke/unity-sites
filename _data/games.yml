@@ -1,0 +1,26 @@
+# One entry per game. The landing page's "Our Games" list is built from this file,
+# and each game's page reads its entry by matching `game:` in the page's front matter.
+#
+# slug:       the game's folder name (its page is /<slug>/)
+# name:       display name
+# pitch:      one line for the game card and the page subtitle
+# image:      path prefix of the key art made by tools/make_images.py (no width or extension)
+# image_widths: widths that exist for that image, smallest first
+# image_alt:  describe the key art for screen readers
+# pixel_art:  true to keep pixels crisp when images scale
+# theme:      CSS file in assets/css/games/ (without .css); leave out for the plain company look
+# platform:   where it will ship
+# store_url:  leave empty until the store listing is live; the page then shows "Coming soon"
+# privacy:    true if the game has a policy at /<slug>/privacy/
+
+- slug: bumperblock
+  name: Bumper Block
+  pitch: A top-down demolition derby in an overgrown stadium.
+  image: /assets/img/bumperblock/keyart
+  image_widths: [640, 1280, 1920]
+  image_alt: Four animal drivers, a rabbit, a raccoon, a cat and a dog, race scrappy karts across the dirt track of a ruined stadium overgrown with vines.
+  pixel_art: true
+  theme: bumperblock
+  platform: Android
+  store_url: ""
+  privacy: true

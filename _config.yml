@@ -1,0 +1,22 @@
+# Mountain Wave website, built by GitHub Pages (Jekyll).
+title: Mountain Wave
+description: Mountain Wave is a small independent game studio.
+contact_email: a.j.montecalvo@gmail.com
+
+# Where the site lives. For https://ventiduke.github.io/unity-sites/ keep these as they are.
+# On a custom domain later: set url to that domain, set baseurl to "", and add a CNAME file.
+url: "https://ventiduke.github.io"
+baseurl: "/unity-sites"
+
+lang: en
+permalink: pretty
+markdown: kramdown
+
+# Kept in the repo but not published.
+exclude:
+  - references/
+  - tools/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
