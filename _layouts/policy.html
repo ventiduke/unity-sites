@@ -1,0 +1,27 @@
+---
+layout: base
+---
+{%- comment -%}
+  Policy page (privacy policy, terms...). Front matter:
+    title: Privacy Policy
+    game: <slug>          # optional: themes the page and links back to the game
+    last_updated: 2026-10-18
+{%- endcomment -%}
+{%- if page.game -%}{%- assign game = site.data.games | where: "slug", page.game | first -%}{%- endif -%}
+<header class="game-bar">
+  <div class="wrap">
+    {%- if game %}
+    <a class="game-bar__home" href="{{ '/' | append: game.slug | append: '/' | relative_url }}">&larr; {{ game.name }}</a>
+    {%- else %}
+    <a class="game-bar__home" href="{{ '/' | relative_url }}">&larr; Mountain Wave</a>
+    {%- endif %}
+  </div>
+</header>
+<main id="main" class="wrap">
+  <article class="policy">
+    <h1>{% if game %}{{ game.name }} {% endif %}{{ page.title }}</h1>
+    <p class="policy__updated">Last updated: <time datetime="{{ page.last_updated | date: '%Y-%m-%d' }}">{{ page.last_updated | date: "%B %-d, %Y" }}</time></p>
+{{ content }}
+  </article>
+</main>
+{% include site-footer.html game=game %}

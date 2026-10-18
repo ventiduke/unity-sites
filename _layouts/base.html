@@ -1,0 +1,29 @@
+<!doctype html>
+{%- comment -%}
+  Every page ends up here. A page with `game: <slug>` in its front matter gets that game's
+  theme (from _data/games.yml); any other page gets the company look.
+{%- endcomment -%}
+{%- if page.game -%}{%- assign game = site.data.games | where: "slug", page.game | first -%}{%- endif %}
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- if page.title %}
+  <title>{{ page.title }} · {{ site.title }}</title>
+  {%- else %}
+  <title>{{ site.title }}</title>
+  {%- endif %}
+  <meta name="description" content="{{ page.description | default: site.description | strip_html | strip_newlines | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/favicon-32.png' | relative_url }}" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  {%- if game.theme %}
+  <link rel="stylesheet" href="{{ '/assets/css/games/' | append: game.theme | append: '.css' | relative_url }}">
+  {%- endif %}
+</head>
+<body class="{% if game.theme %}theme-{{ game.theme }}{% else %}theme-company{% endif %}{% if page.body_class %} {{ page.body_class }}{% endif %}">
+{{ content }}
+</body>
+</html>

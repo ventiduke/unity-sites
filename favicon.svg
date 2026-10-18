@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>path{fill:none;stroke:#1a1714;stroke-linecap:round;stroke-linejoin:round}@media (prefers-color-scheme:dark){path{stroke:#f6efe0}}</style>
+  <!-- Mountain Wave mark: two snow-capped peaks and a curling wave, simplified from the logo -->
+  <path stroke-width="3.5" d="M4 47 L17 11 L26 31 L33 9 L43 32"/>
+  <path stroke-width="2.5" d="M11 27 q2.5 3 5 0 q2.5 3 5 0 M27 20 q2.5 3 5 0 q2.5 3 5 0"/>
+  <path stroke-width="3.5" d="M2 51 C18 43 34 47 46 37 C54 30 56 21 50 18 C45 16 41 20 43 25 C44 28 48 28 49 25"/>
+  <path stroke-width="2.5" d="M10 59 C26 54 44 57 62 49"/>
+</svg>
