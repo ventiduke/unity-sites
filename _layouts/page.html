@@ -1,0 +1,29 @@
+---
+layout: base
+---
+{%- comment -%}
+  A plain page under a game (feedback, FAQ...), without the game page's hero. Front matter:
+    title: Feedback
+    game: <slug>          # themes the page and links back to the game
+    lede: one line under the title (optional)
+{%- endcomment -%}
+{%- if page.game -%}{%- assign game = site.data.games | where: "slug", page.game | first -%}{%- endif -%}
+<header class="game-bar">
+  <div class="wrap">
+    {%- if game %}
+    <a class="game-bar__home" href="{{ '/' | append: game.slug | append: '/' | relative_url }}">&larr; {{ game.name }}</a>
+    {%- else %}
+    <a class="game-bar__home" href="{{ '/' | relative_url }}">&larr; Mountain Wave</a>
+    {%- endif %}
+  </div>
+</header>
+<main id="main" class="wrap">
+  <article class="page">
+    <h1>{% if game %}{{ game.name }} {% endif %}{{ page.title }}</h1>
+    {%- if page.lede %}
+    <p class="page__lede">{{ page.lede }}</p>
+    {%- endif %}
+{{ content }}
+  </article>
+</main>
+{% include site-footer.html game=game %}

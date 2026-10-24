@@ -3,6 +3,9 @@
     {%- if include.game and include.game.privacy %}
     <p><a href="{{ '/' | append: include.game.slug | append: '/privacy/' | relative_url }}">{{ include.game.name }} privacy policy</a></p>
     {%- endif %}
+    {%- if include.game and include.game.feedback %}
+    <p><a href="{{ '/' | append: include.game.slug | append: '/feedback/' | relative_url }}">Send feedback on {{ include.game.name }}</a></p>
+    {%- endif %}
     <p>Contact: <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
     <p class="site-footer__small">&copy; {{ site.time | date: "%Y" }} <a href="{{ '/' | relative_url }}">Mountain Wave</a></p>
   </div>

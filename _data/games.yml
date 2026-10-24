@@ -12,6 +12,8 @@
 # platform:   where it will ship
 # store_url:  leave empty until the store listing is live; the page then shows "Coming soon"
 # privacy:    true if the game has a policy at /<slug>/privacy/
+# feedback:   true if the game has a feedback page at /<slug>/feedback/ (the game links it)
+# feedback_form: the Google Form's "viewform" link that page embeds and that the game posts to
 
 - slug: bumperblock
   name: Bumper Block
@@ -24,3 +26,5 @@
   platform: Android
   store_url: ""
   privacy: true
+  feedback: true
+  feedback_form: https://docs.google.com/forms/d/e/1FAIpQLSeyObyK4ps38ypVXdeffmV8xMlCBRyq-f1zyXu9nb1IjQEUUw/viewform

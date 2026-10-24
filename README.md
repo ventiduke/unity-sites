@@ -10,6 +10,7 @@ Live at **https://ventiduke.github.io/unity-sites/**
 | Company home | https://ventiduke.github.io/unity-sites/ |
 | Bumper Block | https://ventiduke.github.io/unity-sites/bumperblock/ |
 | Bumper Block privacy policy | https://ventiduke.github.io/unity-sites/bumperblock/privacy/ |
+| Bumper Block feedback | https://ventiduke.github.io/unity-sites/bumperblock/feedback/ |
 
 ## Layout of the repo
 
@@ -21,6 +22,7 @@ _layouts/
   company.html           company pages (cream paper, ink, serif)
   game.html              game pages: hero art, name, pitch, store link or "Coming soon"
   policy.html            policy pages, with a "Last updated" date
+  page.html              plain pages under a game (the feedback page), no hero
 _includes/               game card, footer, responsive <picture> helper
 assets/css/site.css      shared styles and the company look
 assets/css/games/        one theme file per game (e.g. bumperblock.css)
@@ -29,6 +31,7 @@ assets/img/              web-sized images, made by tools/make_images.py
 index.html               company landing page
 bumperblock/index.md     Bumper Block page
 bumperblock/privacy/     Bumper Block privacy policy
+bumperblock/feedback/    Bumper Block feedback page: embeds the Google Form the game also posts to
 favicon.svg, favicon-32.png, favicon.ico, apple-touch-icon.png
 references/              original art and notes: kept in the repo, never published
 tools/make_images.py     makes the web images from references/
@@ -109,6 +112,22 @@ permalink: /skyhop/privacy/
   `permalink`, and leave out `game:` for the company look.
 - **Never move or rename a policy that's already in a store listing.** Its URL is in the
   Play Console and in the game. Edit the text in place and update `last_updated`.
+
+## Add a feedback page
+
+A game's feedback goes to a Google Form (the game posts to it directly from the phone; see
+`tools/feedback/create-form.gs` in the game's repo, which builds the form and prints its
+links). On the site:
+
+1. In `_data/games.yml` set `feedback: true` and `feedback_form:` to the form's `viewform`
+   link. The game page's footer then links the feedback page.
+2. Create `<slug>/feedback/index.md` with `layout: page`, `game: <slug>`, a fixed `permalink`
+   (the game holds that URL, so it never moves), and the embed:
+   ```
+   <iframe src="{{ game.feedback_form }}?embedded=true" title="..." loading="lazy" width="100%" height="1500"></iframe>
+   ```
+   (`bumperblock/feedback/index.md` is the model.)
+3. Add a "Feedback you send" section to the game's privacy policy and bump `last_updated`.
 
 ## Moving to a custom domain later
 
