@@ -21,6 +21,8 @@ turns.
 - **Keep moving.** Dodge the cops, shove through rain, snow and fog, and don't get boxed in.
 - **Upgrade.** Spend scrap between runs in the Garage to build up your kart.
 
+Playing a test build? [Tell us what happened]({{ '/bumperblock/feedback/' | relative_url }}): it takes a minute and shapes the next build.
+
 ## Pick your driver
 
 <ul class="drivers">
